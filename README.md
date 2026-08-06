@@ -15,7 +15,7 @@ This repository contains the full source code and media assets for my official p
 ## 🚀 Key Pillars & Capabilities
 
 - **Frontend Engineering**: High-performance, responsive web applications built with HTML5, CSS3, JavaScript (ES6+), React, Next.js, TypeScript, and Framer Motion.
-- **Web3 Product Development**: Wallet integrations, decentralized applications (dApps), smart contract interactions, and founder of [Web3Central](https://github.com/Expat-Q/My-Portfolio) (curating 400+ Web3 tools).
+- **Web3 Product Development**: Wallet integrations, decentralized applications (dApps), smart contract interactions, and founder of [Web3Central](https://web3central.pro) (curating 400+ Web3 tools).
 - **Hardware Engineering (ALSTECH)**: Professional laptop and smartphone repair services, system diagnostics, software installation, and precision microsoldering for motherboard circuitry.
 - **Social Media Management**: Growth strategy, audience engagement, and targeted advertising across Instagram, X (Twitter), and Facebook.
 - **Motion Design**: Ambient video backgrounds and visual storytelling using After Effects and CapCut.
@@ -23,20 +23,20 @@ This repository contains the full source code and media assets for my official p
 
 ---
 
-## 🛠️ Featured Projects Showcase
+## 🛠️ Featured Projects & Live Links
 
-1. **Web3Central**: Discovery platform for exploring over 400+ Web3 tools and protocol resources.
-2. **Politician Portfolio Website**: Client project designed for political branding, accessibility, and credibility.
-3. **The Beaks NFT Puzzle Game**: Interactive puzzle game securing an FCFS whitelist award.
+1. **[Web3Central](https://web3central.pro)**: Discovery platform for exploring over 400+ Web3 tools and protocol resources.
+2. **[AUF Organisation](https://auforg.vercel.app)**: Client project designed for organizational branding, accessibility, and credibility.
+3. **[The Beaks NFT Puzzle Game](http://thebeaks-puzzle.vercel.app/)**: Interactive puzzle game securing an FCFS whitelist award.
 4. **Warden Counter**: Social analytics tool tracking ecosystem metrics.
-5. **Base Sport Fantasy**: Web3 sports application combining fantasy football engagement and wallet connection.
+5. **[Base Sport Fantasy](https://base-miniapp-v2.vercel.app/)**: Web3 sports application combining fantasy football engagement and wallet connection.
 
 ---
 
 ## 🎨 Tech Stack & Architecture
 
 - **Markup & Styling**: HTML5, Vanilla CSS3 (Custom design system with dark navy `#070161` & crimson red `#D00013` palette).
-- **Logic & Mechanics**: Modern JavaScript (ES6+) with `IntersectionObserver` scroll animations, interactive lightbox modal, and automatic slider carousel.
+- **Logic & Mechanics**: Modern JavaScript (ES6+) with dynamic typing animation, `IntersectionObserver` scroll animations, interactive lightbox modal, and automatic slider carousel.
 - **Typography**: Google Fonts (*Outfit* and *Plus Jakarta Sans*).
 
 ---

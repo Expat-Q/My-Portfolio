@@ -1,6 +1,6 @@
 /* ==========================================================================
    ALSTECH - Olagoke Abdulqudus Professional Portfolio Architecture
-   Desktop & Mobile Responsive Design System
+   Desktop & Mobile Responsive Design System with Rich Motion Animations
    Brand Colors:
    Primary: #070161 (Royal Deep Navy)
    Base: #FFFFFF (Crisp Pure White)
@@ -150,7 +150,7 @@ img, video {
   left: -50px;
 }
 
-/* STAR DIVIDER STYLING */
+/* STAR DIVIDER STYLING & ANIMATIONS */
 .star-divider-container {
   display: flex;
   align-items: center;
@@ -173,6 +173,11 @@ img, video {
   flex-shrink: 0;
   color: var(--accent);
   stroke-width: 2;
+  transition: transform 0.4s ease;
+}
+
+.star-divider-container:hover .star-divider-icon {
+  transform: rotate(180deg) scale(1.2);
 }
 
 /* SECTION TAG & DESKTOP HEADER TYPOGRAPHY */
@@ -240,7 +245,7 @@ img, video {
 
 .btn-accent:hover {
   background-color: var(--accent-hover);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
   box-shadow: var(--shadow-accent-glow);
 }
 
@@ -253,7 +258,7 @@ img, video {
 .btn-outline-navy:hover {
   background-color: var(--primary);
   color: var(--text-white);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
 }
 
 .btn-sm {
@@ -383,7 +388,7 @@ img, video {
   display: none;
 }
 
-/* DESKTOP HERO SECTION */
+/* HERO SECTION - TYPING ANIMATION & DYNAMIC SLIDES */
 .hero-section {
   padding-top: 7.25rem;
   padding-bottom: 3rem;
@@ -408,6 +413,21 @@ img, video {
   margin-bottom: 0.85rem;
   letter-spacing: -0.5px;
   text-align: left;
+  min-height: 2.4em;
+}
+
+/* Typing Cursor Effect */
+.typing-cursor {
+  display: inline-block;
+  color: var(--accent);
+  font-weight: 300;
+  margin-left: 2px;
+  animation: blinkCursor 0.85s infinite;
+}
+
+@keyframes blinkCursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
 
 .hero-subtitle {
@@ -469,7 +489,7 @@ img, video {
   background-color: var(--border-light);
 }
 
-/* DESKTOP PROFILE VISUAL CARD */
+/* DESKTOP PROFILE VISUAL CARD & FLOATING ANIMATIONS */
 .hero-visual {
   position: relative;
   width: 100%;
@@ -490,6 +510,15 @@ img, video {
   filter: blur(14px);
   z-index: -1;
   opacity: 0.4;
+}
+
+.pulse-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.35; transform: scale(1); }
+  50% { opacity: 0.65; transform: scale(1.03); }
 }
 
 .profile-card {
@@ -515,6 +544,11 @@ img, video {
   height: 100%;
   object-fit: cover;
   object-position: center top;
+  transition: transform 0.5s ease;
+}
+
+.profile-card:hover .profile-img {
+  transform: scale(1.02);
 }
 
 .profile-overlay {
@@ -539,6 +573,20 @@ img, video {
   color: var(--primary);
   border: 1px solid rgba(255, 255, 255, 0.9);
   z-index: 2;
+}
+
+.float-anim {
+  animation: floatBadge 3.2s ease-in-out infinite;
+}
+
+.float-anim-delayed {
+  animation: floatBadge 3.2s ease-in-out infinite;
+  animation-delay: 1.6s;
+}
+
+@keyframes floatBadge {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
 }
 
 .mini-badge-logo {
@@ -578,7 +626,7 @@ img, video {
   margin-bottom: 0.4rem;
 }
 
-/* SLEEK REDUCED PERSONAL TAGLINE QUOTE ON DESKTOP */
+/* PERSONAL TAGLINE QUOTE ON DESKTOP */
 .personal-tagline-quote {
   display: inline-block;
   font-family: var(--font-heading);
@@ -617,6 +665,7 @@ img, video {
 .about-card:hover {
   border-color: var(--border-accent);
   box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
 }
 
 .card-header-icon {
@@ -763,6 +812,7 @@ img, video {
 .expertise-card:hover {
   border-color: var(--border-accent);
   box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
 }
 
 /* MOTION DESIGN CARD WITH AMBIENT BACKGROUND VIDEO */
@@ -968,6 +1018,7 @@ img, video {
 .project-card:hover {
   border-color: var(--border-accent);
   box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
 }
 
 .project-media {
@@ -986,7 +1037,7 @@ img, video {
 }
 
 .project-card:hover .project-media img {
-  transform: scale(1.03);
+  transform: scale(1.04);
 }
 
 .project-badge {
@@ -1102,6 +1153,7 @@ img, video {
 
 .skill-category-card:hover {
   border-color: var(--border-accent);
+  transform: translateY(-3px);
 }
 
 .category-header {
@@ -1138,6 +1190,7 @@ img, video {
 
 .education-card:hover {
   border-color: var(--border-accent);
+  transform: translateY(-3px);
 }
 
 .edu-icon {
@@ -1205,7 +1258,7 @@ img, video {
   border-radius: 2px;
 }
 
-/* Timeline */
+/* Timeline Dot Animations */
 .timeline {
   position: relative;
   padding-left: 1.35rem;
@@ -1232,6 +1285,15 @@ img, video {
 
 .timeline-dot.dot-accent {
   background: var(--accent);
+}
+
+.pulse-dot {
+  animation: pulseDot 2.5s infinite;
+}
+
+@keyframes pulseDot {
+  0%, 100% { box-shadow: 0 0 0 3px var(--bg-surface); }
+  50% { box-shadow: 0 0 0 7px rgba(208, 0, 19, 0.25); }
 }
 
 .timeline-date {
@@ -1275,6 +1337,7 @@ img, video {
 
 .achievement-card:hover {
   border-color: var(--border-accent);
+  transform: translateX(4px);
 }
 
 .achieve-icon {
@@ -1336,7 +1399,8 @@ img, video {
 }
 
 .channel-item:hover {
-  border-color: var(--primary-glow);
+  border-color: var(--border-accent);
+  transform: translateX(5px);
 }
 
 .channel-icon {
@@ -1559,33 +1623,36 @@ img, video {
 }
 
 .scroll-top-btn:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px);
   background: var(--accent-hover);
 }
 
 /* ==========================================================================
-   SLIDE IN & SLIDE OUT SCROLL ANIMATION CLASSES
+   ENHANCED SLIDE IN & SLIDE OUT SCROLL ANIMATION CLASSES (60FPS SILKY SMOOTH)
    ========================================================================== */
 
 .slide-in-left {
   opacity: 0;
-  transform: translateX(-40px);
-  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateX(-50px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
 }
 
 .slide-in-right {
   opacity: 0;
-  transform: translateX(40px);
-  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateX(50px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
 }
 
 .slide-in-up {
   opacity: 0;
-  transform: translateY(35px);
-  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(45px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
 }
 
-/* Appear State triggered by IntersectionObserver */
+/* Active State triggered by IntersectionObserver */
 .slide-in-left.appear,
 .slide-in-right.appear,
 .slide-in-up.appear {
@@ -1622,6 +1689,7 @@ img, video {
   .hero-title {
     text-align: left;
     font-size: 1.65rem;
+    min-height: 2.2em;
   }
 
   .hero-subtitle {
@@ -1735,6 +1803,7 @@ img, video {
     line-height: 1.2;
     margin-bottom: 0.45rem;
     text-align: left;
+    min-height: 2.3em;
   }
 
   .hero-subtitle {

@@ -1,6 +1,6 @@
 /* ==========================================================================
    ALSTECH - Olagoke Abdulqudus Portfolio Mechanics
-   Production Ready: ScrollSpy, Mobile Drawer, Slider, Lightbox & Animations
+   Typing Animation, Hero Slide In/Out, ScrollSpy, Slider & Lightbox
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -14,7 +14,53 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* --------------------------------------------------
-   * 1. INTERSECTION OBSERVER FOR SLIDE-IN / SLIDE-OUT
+   * 1. HERO DYNAMIC TYPING ANIMATION
+   * -------------------------------------------------- */
+  const typingTextEl = document.getElementById('typingText');
+  if (typingTextEl) {
+    const roles = [
+      'Web3 Product Builder',
+      'ALSTECH Founder',
+      'Frontend Engineer',
+      'Social Media Growth Specialist',
+      'Motion Design Creator'
+    ];
+    let roleIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    const typeSpeed = 95;
+    const deleteSpeed = 45;
+    const delayNext = 2200;
+
+    function typeEffect() {
+      const currentRole = roles[roleIndex];
+      if (isDeleting) {
+        typingTextEl.textContent = currentRole.substring(0, charIndex - 1);
+        charIndex--;
+      } else {
+        typingTextEl.textContent = currentRole.substring(0, charIndex + 1);
+        charIndex++;
+      }
+
+      let speed = isDeleting ? deleteSpeed : typeSpeed;
+
+      if (!isDeleting && charIndex === currentRole.length) {
+        speed = delayNext;
+        isDeleting = true;
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        roleIndex = (roleIndex + 1) % roles.length;
+        speed = 350;
+      }
+
+      setTimeout(typeEffect, speed);
+    }
+
+    typeEffect();
+  }
+
+  /* --------------------------------------------------
+   * 2. INTERSECTION OBSERVER FOR SLIDE-IN / SLIDE-OUT
    * -------------------------------------------------- */
   const slideElements = document.querySelectorAll('.slide-in-left, .slide-in-right, .slide-in-up, .fade-in, .fade-in-up');
 
@@ -29,7 +75,8 @@ document.addEventListener('DOMContentLoaded', () => {
       if (entry.isIntersecting) {
         entry.target.classList.add('appear');
       } else {
-        if (entry.boundingClientRect.top > 0) {
+        // Slide out when scrolling past top/bottom
+        if (entry.boundingClientRect.top > 0 || entry.boundingClientRect.bottom < 0) {
           entry.target.classList.remove('appear');
         }
       }
@@ -38,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   slideElements.forEach(el => slideObserver.observe(el));
 
-  // Immediate check for elements in initial viewport on page load
+  // Immediate trigger check for elements in viewport on load
   setTimeout(() => {
     slideElements.forEach(el => {
       const rect = el.getBoundingClientRect();
@@ -46,10 +93,10 @@ document.addEventListener('DOMContentLoaded', () => {
         el.classList.add('appear');
       }
     });
-  }, 100);
+  }, 80);
 
   /* --------------------------------------------------
-   * 2. NAVBAR SCROLLED STYLING & SCROLLSPY
+   * 3. NAVBAR SCROLLED STYLING & SCROLLSPY
    * -------------------------------------------------- */
   const navbar = document.getElementById('navbar');
   const navLinks = document.querySelectorAll('.nav-link');
@@ -90,7 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   window.addEventListener('scroll', updateNavbar);
-  updateNavbar(); // Run once on load
+  updateNavbar();
 
   // Scroll to Top Event
   if (scrollTopBtn) {
@@ -100,7 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* --------------------------------------------------
-   * 3. MOBILE HAMBURGER & DRAWER MECHANICS
+   * 4. MOBILE HAMBURGER & DRAWER MECHANICS
    * -------------------------------------------------- */
   const mobileToggle = document.getElementById('mobileToggle');
   const navMenu = document.getElementById('navMenu');
@@ -131,7 +178,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* --------------------------------------------------
-   * 4. ANIMATED STAT COUNTERS
+   * 5. ANIMATED STAT COUNTERS
    * -------------------------------------------------- */
   const statNumbers = document.querySelectorAll('.stat-number[data-target]');
   let counted = false;
@@ -153,7 +200,7 @@ document.addEventListener('DOMContentLoaded', () => {
               count = target;
               clearInterval(timer);
             }
-            stat.innerText = count + '+';
+            stat.innerText = count + (stat.getAttribute('data-target') === '100' ? '%' : '+');
           }, 30);
         });
       }
@@ -166,7 +213,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* --------------------------------------------------
-   * 5. FOOTBALL GALLERY SLIDER
+   * 6. FOOTBALL GALLERY SLIDER
    * -------------------------------------------------- */
   const track = document.getElementById('footballSlider');
   const prevBtn = document.getElementById('slidePrev');
@@ -226,7 +273,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* --------------------------------------------------
-   * 6. PROJECT CATEGORY FILTERING
+   * 7. PROJECT CATEGORY FILTERING
    * -------------------------------------------------- */
   const filterBtns = document.querySelectorAll('.filter-btn');
   const projectCards = document.querySelectorAll('.project-card');
@@ -252,7 +299,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* --------------------------------------------------
-   * 7. MEDIA LIGHTBOX MODAL PREVIEW & ESCAPE KEY
+   * 8. MEDIA LIGHTBOX MODAL PREVIEW & ESCAPE KEY
    * -------------------------------------------------- */
   const mediaModal = document.getElementById('mediaModal');
   const modalBackdrop = document.getElementById('modalBackdrop');
